@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388060321216",
+    "project_id": "a7sticktoityunxiangli-4f348",
+    "storage_bucket": "a7sticktoityunxiangli-4f348.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388060321216:android:aac46542c26aadfda96425",
+        "android_client_info": {
+          "package_name": "edu.neu.madcourse.numad22sp_yunxiangli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388060321216-erjmd32rgh21hpniv193p0c7rmsmfhhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjti7DD_0QbKvWhjJs92IfudoNdCeelqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388060321216-erjmd32rgh21hpniv193p0c7rmsmfhhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

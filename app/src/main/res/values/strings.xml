@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NUMAD22Sp_YunxiangLi</string>
+    <string name="sticker_sent_str">Sticker was sent</string>
+    <string name="user_name_str">Username here</string>
+    <string name="username_prompt">Enter Username</string>
+    <string name="Login">Login</string>
+</resources>
