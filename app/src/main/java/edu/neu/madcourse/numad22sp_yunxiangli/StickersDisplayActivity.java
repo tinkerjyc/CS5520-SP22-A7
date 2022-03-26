@@ -6,62 +6,66 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class StickersDisplayActivity extends AppCompatActivity {
-    private String current_user_username;
-    private String friend_username;
-    private DatabaseReference mDatabase;
-    private DatabaseReference mChat;
+/**
+ * This class represents the activity of displaying all available stickers after user
+ * clicking "send sticker" button.
+ */
+public class StickersDisplayActivity extends AppCompatActivity
+{
+    // Store sender and receiver's usernames in string form.
+    private String sender_username;
+    private String receiver_username;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stickers_display);
 
-        current_user_username = getIntent().getStringExtra("current_user_username");
-        friend_username = getIntent().getStringExtra("friend_username");
-        TextView send_sticker_info = (TextView) findViewById(R.id.sendStickerInfo);
-        send_sticker_info.append("Send any of these stickers to " + friend_username);
+        // Fetch and store sender and receiver's usernames.
+        sender_username = getIntent().getStringExtra("sender_username");
+        receiver_username = getIntent().getStringExtra("receiver_username");
+
+        // Set up the send_sticker_info TextView object.
+        TextView send_sticker_info = findViewById(R.id.sendStickerInfo);
+        send_sticker_info.append("Send any of these stickers to " + receiver_username);
 
     }
 
     // called upon clicking any image
-    public void onClickImageButton(View view) {
+    public void onClickImageButton(View view)
+    {
         String sticker_tag = (String)view.getTag();
-        System.out.println("Image clicked for tag " + sticker_tag);
+        Toast.makeText(StickersDisplayActivity.this, "Image clicked for tag "
+                        + sticker_tag, Toast.LENGTH_SHORT).show();
         long epochTime=System.currentTimeMillis();
-        saveRecordToDatabase(current_user_username, friend_username, sticker_tag,String.valueOf(epochTime));
+        saveRecordToDatabase(sender_username, receiver_username, sticker_tag,String.valueOf(epochTime));
     }
 
-    private void saveRecordToDatabase(String sender, String receiver, String sticker_tag, String epochTime) {
+    private void saveRecordToDatabase(String sender, String receiver, String sticker_tag, String epochTime)
+    {
         // save to firebase
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mChat = mDatabase.child("chats");
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mChat = mDatabase.child("chats");
 
-        Context c = getApplicationContext();
-        int sticker_id = c.getResources().getIdentifier("drawable/"+sticker_tag, null, c.getPackageName());
-        SingleChat chat = new SingleChat(sender, receiver, sticker_tag, epochTime, sticker_id);
+        ChatRecord chat = new ChatRecord(sender, receiver, sticker_tag, epochTime);
 
         String uniqueId = sender.concat(epochTime);
         //add to database
         Context context = getApplicationContext();
-        mChat.child(uniqueId).setValue(chat, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference ref) {
-                if (databaseError != null) {
-                    Toast myToast1= Toast.makeText(context, "Failed to send sticker", Toast.LENGTH_LONG);
-                    myToast1.show();
-                } else {
-                    Toast myToast = Toast.makeText(context, chat.getSticker().concat(" Sent!"), Toast.LENGTH_LONG);
-                    myToast.show();
-                }
+        mChat.child(uniqueId).setValue(chat, (databaseError, ref) ->
+        {
+            if (databaseError != null) {
+                Toast myToast1= Toast.makeText(context, "Failed to send sticker", Toast.LENGTH_LONG);
+                myToast1.show();
+            } else {
+                Toast myToast = Toast.makeText(context, chat.getSticker().concat(" Sent!"), Toast.LENGTH_LONG);
+                myToast.show();
             }
         });
     }

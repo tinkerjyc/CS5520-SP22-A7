@@ -1,9 +1,12 @@
 package edu.neu.madcourse.numad22sp_yunxiangli;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,81 +21,119 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MainPageActivity extends AppCompatActivity implements RecyclerViewAdapterUserRecordContainer.UserRecordListener{
+/**
+ * This class represents the activity of the main page.
+ */
+public class MainPageActivity extends AppCompatActivity implements
+        RecyclerViewAdapterUserRecordContainer.UserRecordListener
+{
 
-    private RecyclerView recyclerViewForAllUsers;
-    private RecyclerView.LayoutManager recyclerViewLayoutManger;
+    // Store the adapter of the recyclerview, ArrayList of UserInfo objects and usernameStr string.
     private RecyclerViewAdapterUserRecordContainer recyclerViewAdapterUserRecordContainer;
-    private ArrayList<UserInfo> userCards = new ArrayList<>();
-    private String username;
-    private DatabaseReference mDatabase;
-    private DatabaseReference mUsers;
+    private final ArrayList<UserInfo> userInfoList = new ArrayList<>();
+    private String usernameStr;
 
+    // Initialize a log tag.
+    private static final String MainPageActivityTAG = "MainPageActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        username = getIntent().getStringExtra("USERNAME");
 
-        TextView user_info = (TextView) findViewById(R.id.userInfoTextView);
-        user_info.setTypeface(null, Typeface.BOLD);
-        user_info.append("Hello " + username + ", send a sticker to any of the app users. Click on the user to see history");
-        UserInfo user = new UserInfo(username);
-        //reference to firebase
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        //get user reference
-        mUsers = mDatabase.child("users");
-        //add user to db
-        mUsers.child(username).setValue(user);
+        // Store passed username.
+        usernameStr = getIntent().getStringExtra("username");
+        // Set up the user info text view.
+        TextView user_info_textview = findViewById(R.id.userInfoTextView);
+        user_info_textview.setTypeface(null, Typeface.BOLD_ITALIC);
+        user_info_textview.append("Hello User: " + usernameStr +
+                ", send a sticker to any of the app" + " users. Click on each row to see record " +
+                "between you and that user");
+        UserInfo userInfo = new UserInfo(usernameStr);
 
-        //recycler view
-        recyclerViewForAllUsers = findViewById(R.id.recyclerViewAllChats);
-        recyclerViewLayoutManger = new LinearLayoutManager(this);
+        // Get reference of root node.
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        // Get "users" reference
+        DatabaseReference usersDBRef = mDatabase.child("users");
+        // Add userInfo object to users database.
+        usersDBRef.child(usernameStr).setValue(userInfo);
+
+        // Set up recyclerview layout manager.
+        RecyclerView recyclerViewForAllUsers = findViewById(R.id.recyclerViewAllChats);
+        RecyclerView.LayoutManager recyclerViewLayoutManger = new LinearLayoutManager(this);
         recyclerViewForAllUsers.setLayoutManager(recyclerViewLayoutManger);
 
-        recyclerViewAdapterUserRecordContainer = new RecyclerViewAdapterUserRecordContainer(userCards, this);
+        // Set recyclerView's adapter.
+        recyclerViewAdapterUserRecordContainer = new RecyclerViewAdapterUserRecordContainer
+                (userInfoList, this);
         recyclerViewForAllUsers.setAdapter(recyclerViewAdapterUserRecordContainer);
 
-        //Display all users
-        mUsers.addValueEventListener(new ValueEventListener() {
+        // Attach listener to receive events about data changes.
+        usersDBRef.addValueEventListener(new ValueEventListener()
+        {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userCards.clear();
-                for(DataSnapshot snapshot1 :snapshot.getChildren()){
-                    UserInfo user = snapshot1.getValue(UserInfo.class);
-                    if(!user.getUsername().equals(username)) {
-                        userCards.add(user);
+            // Get called when data changes.
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                // Clear the previous userInfo list.
+                userInfoList.clear();
+                // Iterate each child DataSnapshot instance among all DataSnapshot.
+                for(DataSnapshot eachChildSnapshot :snapshot.getChildren())
+                {
+                    // Find and store each UserInfo object.
+                    UserInfo userInfo = eachChildSnapshot.getValue(UserInfo.class);
+                    assert userInfo != null;
+                    // Check if username string matches.
+                    if(!userInfo.getUsername().equals(usernameStr))
+                    {
+                        // Add current SingleChat object to the chatList and increase send num.
+                        userInfoList.add(userInfo);
                     }
                 }
+                // Notify any registered observers that the data set has changed.
                 recyclerViewAdapterUserRecordContainer.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onCancelled(@NonNull DatabaseError error)
+            {
+                Log.w(MainPageActivityTAG, "Something weird happened", error.toException());
             }
         });
     }
 
+    // Triggered when user clicks the record bar(except the send sticker button).
+    // Start the ChatRecordActivity.
     @Override
-    public void onUserClick(int position) {
-        System.out.println("User clicked at position " + position);
+    public void onUserChatRecordClick(int position)
+    {
+        Toast.makeText(MainPageActivity.this, "user chat record clicked!",
+                Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(this, ChatRecordActivity.class);
-        intent.putExtra("friend_username", userCards.get(position).getUsername());
-        intent.putExtra("current_user_username", username);
+        // Create a new Intent object of UserChatRecordActivity.
+        Intent intent = new Intent(this, UserChatRecordActivity.class);
+        // Add specific(clicked) user record's related sender name and receiver's name.
+        intent.putExtra("receiver_username", userInfoList.get(position).getUsername());
+        intent.putExtra("sender_username", usernameStr);
 
         startActivity(intent);
     }
 
+    // Triggered when user clicks the send sticker button.
+    // Start the ChatRecordActivity.
     @Override
-    public void onUserSendStickerButtonClick(int position) {
-        System.out.println("Send sticker clicked at position " + position);
+    public void onUserSendStickerButtonClick(int position)
+    {
+        Toast.makeText(MainPageActivity.this, "send sticker button clicked!",
+                Toast.LENGTH_SHORT).show();
 
+        // Create a new Intent object of  StickersDisplayActivity.
         Intent intent = new Intent(this, StickersDisplayActivity.class);
-        intent.putExtra("friend_username", userCards.get(position).getUsername());
-        intent.putExtra("current_user_username", username);
+        // Add specific(clicked) button's related sender name and receiver's name.
+        intent.putExtra("receiver_username", userInfoList.get(position).getUsername());
+        intent.putExtra("sender_username", usernameStr);
 
         startActivity(intent);
     }

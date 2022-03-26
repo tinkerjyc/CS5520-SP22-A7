@@ -17,21 +17,21 @@ import java.util.HashMap;
 import java.util.TimeZone;
 
 public class RecyclerViewAdapterChatRecord extends RecyclerView.Adapter<RecyclerViewAdapterChatRecord.RecyclerChatViewHolder> {
-    private ArrayList<SingleChat> chat_card_list;
-    private String current_user_username, friend_username;
+    private ArrayList<ChatRecord> chat_card_list;
+    private String sender_username, receiver_username;
     private HashMap<String, Integer> sticker_id_mapping;
 
-    public RecyclerViewAdapterChatRecord(ArrayList<SingleChat> chat_card_list,
-                                         String current_user_username, String friend_username) {
+    public RecyclerViewAdapterChatRecord(ArrayList<ChatRecord> chat_card_list,
+                                         String sender_username, String receiver_username) {
         this.chat_card_list = chat_card_list;
-        this.current_user_username = current_user_username;
-        this.friend_username = friend_username;
+        this.sender_username = sender_username;
+        this.receiver_username = receiver_username;
         this.sticker_id_mapping = new HashMap<>();
         map_sticker_ids();
     }
 
     private void map_sticker_ids() {
-        sticker_id_mapping.put("sticker1", R.drawable.sticker_1);
+        sticker_id_mapping.put("sticker14", R.drawable.sticker_1);
         sticker_id_mapping.put("sticker2", R.drawable.sticker_2);
         sticker_id_mapping.put("sticker3", R.drawable.sticker_3);
         sticker_id_mapping.put("sticker4", R.drawable.sticker_4);
@@ -55,25 +55,25 @@ public class RecyclerViewAdapterChatRecord extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerChatViewHolder holder, int position) {
-        SingleChat chatCard = chat_card_list.get(position);
+        ChatRecord chatCard = chat_card_list.get(position);
 
         String sticker_tag = chatCard.getSticker();
         String time = chatCard.getTime();
         Long value = Long.parseLong(time);
         Date date = new Date(value);
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        format.setTimeZone(TimeZone.getTimeZone("GMT-4"));
         String formatted = format.format(date);
 
         String sender = chatCard.getSender();
         String receiver = chatCard.getReceiver();
 
-        if (sender.equals(current_user_username) && receiver.equals(friend_username)) {
+        if (sender.equals(sender_username) && receiver.equals(receiver_username)) {
             holder.getSenderSticker().setImageResource(sticker_id_mapping.get(sticker_tag));
             holder.getReceiverSticker().setImageResource(0);
             holder.getSenderStickerTime().setText(formatted);
             holder.getReceiverStickerTime().setText("");
-        } else if (sender.equals(friend_username) && receiver.equals(current_user_username)) {
+        } else if (sender.equals(receiver_username) && receiver.equals(sender_username)) {
             holder.getReceiverSticker().setImageResource(sticker_id_mapping.get(sticker_tag));
             holder.getSenderSticker().setImageResource(0);
             holder.getReceiverStickerTime().setText(formatted);

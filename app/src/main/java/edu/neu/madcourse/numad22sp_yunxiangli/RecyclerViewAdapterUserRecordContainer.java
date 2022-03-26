@@ -70,12 +70,14 @@ public class RecyclerViewAdapterUserRecordContainer extends RecyclerView.Adapter
 
         @Override
         public void onClick(View v) {
-            userRecordListener.onUserClick(getAdapterPosition());
+            userRecordListener.onUserChatRecordClick(getAdapterPosition());
         }
     }
 
     public interface UserRecordListener {
-        void onUserClick(int position);
+
+        // Triggered when user clicks the record bar(except the send sticker button).
+        void onUserChatRecordClick(int position);
 
         void onUserSendStickerButtonClick(int position);
     }
