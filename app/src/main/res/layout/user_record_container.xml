@@ -34,6 +34,7 @@
                 android:text="@string/sticker_sent_str"
                 android:textAllCaps="false"
                 android:onClick="onClickSendStickerButton"
+                android:textColor="@color/dark_yellow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.538"
