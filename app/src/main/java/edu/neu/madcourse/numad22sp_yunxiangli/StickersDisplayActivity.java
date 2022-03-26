@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * This class represents the activity of displaying all available stickers after user
  * clicking "send sticker" button.
@@ -37,34 +40,45 @@ public class StickersDisplayActivity extends AppCompatActivity
 
     }
 
-    // called upon clicking any image
-    public void onClickImageButton(View view)
+    // called upon clicking any sticker.
+    public void onClickStickerButton(View view)
     {
+        // Make a toast about sticker clicked.
         String sticker_tag = (String)view.getTag();
-        Toast.makeText(StickersDisplayActivity.this, "Image clicked for tag "
+        Toast.makeText(StickersDisplayActivity.this, "Sticker clicked for tag "
                         + sticker_tag, Toast.LENGTH_SHORT).show();
-        long epochTime=System.currentTimeMillis();
-        saveRecordToDatabase(sender_username, receiver_username, sticker_tag,String.valueOf(epochTime));
+        // Have to use wrong time here.
+        long currTime = System.currentTimeMillis();
+        saveRecordToDatabase(sender_username, receiver_username,
+                sticker_tag,String.valueOf(currTime));
     }
 
-    private void saveRecordToDatabase(String sender, String receiver, String sticker_tag, String epochTime)
+    // Save one send/receiver sticker record into the database.
+    private void saveRecordToDatabase(String sender, String receiver, String sticker_tag,
+                                      String epochTime)
     {
-        // save to firebase
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mChat = mDatabase.child("chats");
+        // Get root node and chats database ref.
+        DatabaseReference DBRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference chatsDBRef = DBRef.child("chats");
 
+        // Create a new ChatRecord object.
         ChatRecord chat = new ChatRecord(sender, receiver, sticker_tag, epochTime);
-
+        // Generate a new uniqueID combined with sender and epoch time.
         String uniqueId = sender.concat(epochTime);
-        //add to database
+
+        // Set the current ChatRecord object under chats database.
         Context context = getApplicationContext();
-        mChat.child(uniqueId).setValue(chat, (databaseError, ref) ->
+        chatsDBRef.child(uniqueId).setValue(chat, (databaseError, ref) ->
         {
-            if (databaseError != null) {
-                Toast myToast1= Toast.makeText(context, "Failed to send sticker", Toast.LENGTH_LONG);
+            if (databaseError != null)
+            {
+                Toast myToast1= Toast.makeText(context, "Failed to send sticker",
+                        Toast.LENGTH_LONG);
                 myToast1.show();
-            } else {
-                Toast myToast = Toast.makeText(context, chat.getSticker().concat(" Sent!"), Toast.LENGTH_LONG);
+            } else
+            {
+                Toast myToast = Toast.makeText(context, chat.getSticker().concat(" Sent!"),
+                        Toast.LENGTH_LONG);
                 myToast.show();
             }
         });

@@ -29,7 +29,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="85dp"
                 android:layout_marginTop="40dp"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_1"
                 android:tag="sticker1" />
@@ -44,7 +44,7 @@
                 android:layout_marginTop="85dp"
                 android:layout_marginEnd="80dp"
                 android:background="#005"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_2"
                 android:tag="sticker2" />
@@ -59,7 +59,7 @@
                 android:layout_marginTop="85dp"
                 android:layout_marginEnd="80dp"
                 android:background="#005"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_3"
                 android:tag="sticker3" />
@@ -74,7 +74,7 @@
                 android:layout_marginTop="85dp"
                 android:layout_marginEnd="80dp"
                 android:background="#005"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_4"
                 android:tag="sticker4" />
@@ -82,7 +82,7 @@
             <ImageButton
                 android:id="@+id/sticker5"
                 android:tag="sticker5"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker4"
@@ -104,7 +104,7 @@
                 android:layout_marginTop="81dp"
                 android:layout_marginEnd="53dp"
                 android:background="#005"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_6"
                 android:tag="sticker6" />
@@ -112,7 +112,7 @@
             <ImageButton
                 android:id="@+id/sticker7"
                 android:tag="sticker7"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker6"
@@ -127,7 +127,7 @@
             <ImageButton
                 android:id="@+id/sticker8"
                 android:tag="sticker8"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker7"
@@ -142,7 +142,7 @@
             <ImageButton
                 android:id="@+id/sticker9"
                 android:tag="sticker9"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker8"
@@ -157,7 +157,7 @@
             <ImageButton
                 android:id="@+id/sticker10"
                 android:tag="sticker10"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker9"
@@ -172,7 +172,7 @@
             <ImageButton
                 android:id="@+id/sticker11"
                 android:tag="sticker11"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker10"
@@ -187,7 +187,7 @@
             <ImageButton
                 android:id="@+id/sticker12"
                 android:tag="sticker12"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker11"
@@ -202,7 +202,7 @@
             <ImageButton
                 android:id="@+id/sticker13"
                 android:tag="sticker13"
-                android:onClick="onClickImageButton"
+                android:onClick="onClickStickerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sticker12"

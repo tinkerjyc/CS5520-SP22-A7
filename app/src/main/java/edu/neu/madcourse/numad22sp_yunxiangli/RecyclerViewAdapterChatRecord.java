@@ -57,11 +57,12 @@ public class RecyclerViewAdapterChatRecord extends RecyclerView.Adapter<Recycler
     public void onBindViewHolder(@NonNull RecyclerChatViewHolder holder, int position) {
         ChatRecord chatCard = chat_card_list.get(position);
 
+        // Correct time here, wrong time inside the database.
         String sticker_tag = chatCard.getSticker();
         String time = chatCard.getTime();
         Long value = Long.parseLong(time);
         Date date = new Date(value);
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd|HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("GMT-4"));
         String formatted = format.format(date);
 

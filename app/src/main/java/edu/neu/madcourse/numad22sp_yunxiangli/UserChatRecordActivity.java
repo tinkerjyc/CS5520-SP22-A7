@@ -24,7 +24,8 @@ import java.util.Comparator;
 /**
  * This class represents the activity of chat record between two specific users.
  */
-public class UserChatRecordActivity extends AppCompatActivity {
+public class UserChatRecordActivity extends AppCompatActivity
+{
     //  Store the recyclerview adapter, the ArrayList to hold each SingleChat object
     //  and a TextView represents the chat information.
     private RecyclerViewAdapterChatRecord recyclerViewAdapterChatHistory;
@@ -35,7 +36,8 @@ public class UserChatRecordActivity extends AppCompatActivity {
     private static final String UserChatRecordActivityTAG = "UserChatRecordActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_record_recycleview);
 
@@ -66,21 +68,24 @@ public class UserChatRecordActivity extends AppCompatActivity {
         DatabaseReference chatsDatabaseRef = databaseRef.child("chats");
 
         // Attach listener to receive events about data changes.
-        chatsDatabaseRef.addValueEventListener(new ValueEventListener() {
+        chatsDatabaseRef.addValueEventListener(new ValueEventListener()
+        {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             // Get called when data changes.
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 // Initialize two stick related integer.
                 int stickerSendNum = 0;
                 int stickerReceiveNum = 0;
                 // Clear the previous chat list.
                 chatLists.clear();
                 // Iterate each child DataSnapshot instance among all DataSnapshot.
-                for(DataSnapshot eachChildSnapshot : snapshot.getChildren()){
+                for(DataSnapshot eachChildSnapshot : snapshot.getChildren())
+                {
                     // Find and store the each SingleChat object.
                     ChatRecord chat = eachChildSnapshot.getValue(ChatRecord.class);
-                    // Check if both sender and receiver's names match the same one(then its a send process).
+                    // Check if both sender and receiver's names match the same one.
                     assert chat != null;
                     if(chat.getSender().equals(sender_username) && chat.getReceiver()
                             .equals(receiver_username))
@@ -89,8 +94,10 @@ public class UserChatRecordActivity extends AppCompatActivity {
                         chatLists.add(chat);
                         ++stickerSendNum;
                     }
-                    // Check if both sender and receiver's names match the other one(then its a receive process).
-                    else if(chat.getSender().equals(receiver_username) && chat.getReceiver().equals(sender_username)){
+                    // Check if both sender and receiver's names match the other one.
+                    else if(chat.getSender().equals(receiver_username) && chat.getReceiver()
+                            .equals(sender_username))
+                    {
                         // Add current SingleChat object to the chatList and increase receive num.
                         chatLists.add(chat);
                         ++stickerReceiveNum;
@@ -113,7 +120,8 @@ public class UserChatRecordActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error)
             {
-                Log.w(UserChatRecordActivityTAG, "Something weird happened", error.toException());
+                Log.w(UserChatRecordActivityTAG, "Something weird happened",
+                        error.toException());
             }
         });
     }
