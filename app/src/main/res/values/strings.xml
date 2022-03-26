@@ -4,4 +4,5 @@
     <string name="user_name_str">Username here</string>
     <string name="username_prompt">Enter Username</string>
     <string name="Login">Login</string>
+    <string name="ellipsisStr">.....</string>
 </resources>

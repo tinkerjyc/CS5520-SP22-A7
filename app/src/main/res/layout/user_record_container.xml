@@ -33,6 +33,7 @@
                 android:layout_marginEnd="4dp"
                 android:text="@string/sticker_sent_str"
                 android:textAllCaps="false"
+                android:onClick="onClickSendStickerButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.538"

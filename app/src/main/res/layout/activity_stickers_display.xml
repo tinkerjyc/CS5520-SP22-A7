@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,7 +32,8 @@
                 android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_1"
-                android:tag="sticker1" />
+                android:tag="sticker1"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/sticker2"
@@ -47,7 +48,8 @@
                 android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_2"
-                android:tag="sticker2" />
+                android:tag="sticker2"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/sticker3"
@@ -62,7 +64,8 @@
                 android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_3"
-                android:tag="sticker3" />
+                android:tag="sticker3"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker4"
@@ -77,7 +80,8 @@
                 android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_4"
-                android:tag="sticker4" />
+                android:tag="sticker4"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker5"
@@ -92,7 +96,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_5" />
+                android:src="@drawable/sticker_5"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker6"
@@ -107,7 +112,8 @@
                 android:onClick="onClickStickerButton"
                 android:padding="10dp"
                 android:src="@drawable/sticker_6"
-                android:tag="sticker6" />
+                android:tag="sticker6"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker7"
@@ -122,7 +128,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_7" />
+                android:src="@drawable/sticker_7"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker8"
@@ -137,7 +144,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_8" />
+                android:src="@drawable/sticker_8"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker9"
@@ -152,7 +160,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_9" />
+                android:src="@drawable/sticker_9"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker10"
@@ -167,7 +176,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_10" />
+                android:src="@drawable/sticker_10"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker11"
@@ -182,7 +192,8 @@
                 android:layout_marginEnd="95dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_11" />
+                android:src="@drawable/sticker_11"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker12"
@@ -197,7 +208,8 @@
                 android:layout_marginEnd="52dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_12" />
+                android:src="@drawable/sticker_12"
+                tools:ignore="ContentDescription" />
 
             <ImageButton
                 android:id="@+id/sticker13"
@@ -212,7 +224,8 @@
                 android:layout_marginEnd="80dp"
                 android:background="#005"
                 android:padding="10dp"
-                android:src="@drawable/sticker_13" />
+                android:src="@drawable/sticker_13"
+                tools:ignore="ContentDescription" />
         </RelativeLayout>
 
         <TextView

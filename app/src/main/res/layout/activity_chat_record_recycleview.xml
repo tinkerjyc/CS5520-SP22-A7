@@ -75,7 +75,7 @@
                     android:id="@+id/userStickerCountTextView2"
                     android:layout_width="17dp"
                     android:layout_height="11dp"
-                    android:text="....."
+                    android:text="@string/ellipsisStr"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
