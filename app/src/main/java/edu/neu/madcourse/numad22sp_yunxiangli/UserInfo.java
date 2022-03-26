@@ -18,6 +18,7 @@ public class UserInfo
         this.username = username;
     }
 
+    // Getter function.
     public String getUsername()
     {
         return this.username;

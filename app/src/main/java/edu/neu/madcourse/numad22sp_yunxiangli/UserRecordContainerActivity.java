@@ -3,6 +3,7 @@ package edu.neu.madcourse.numad22sp_yunxiangli;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,10 +21,12 @@ public class UserRecordContainerActivity extends AppCompatActivity
     }
 
 
-    // called upon clicking Send sticker button
+    // called upon clicking Send sticker button (This function is kinda redundant),
+    // the real one in processed inside the MainPageActivity.
     public void onClickSendStickerButton(View view)
     {
-        System.out.println("Send sticker button clicked");
+        Toast.makeText(UserRecordContainerActivity.this, "Send sticker button clicked "
+                , Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, StickersDisplayActivity.class));
     }
 }

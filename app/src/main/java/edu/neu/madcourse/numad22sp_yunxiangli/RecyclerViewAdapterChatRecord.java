@@ -16,105 +16,152 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TimeZone;
 
-public class RecyclerViewAdapterChatRecord extends RecyclerView.Adapter<RecyclerViewAdapterChatRecord.RecyclerChatViewHolder> {
-    private ArrayList<ChatRecord> chat_card_list;
-    private String sender_username, receiver_username;
-    private HashMap<String, Integer> sticker_id_mapping;
+/**
+ * This class represents the recyclerview adapter of ChatRecord.
+ */
+public class RecyclerViewAdapterChatRecord extends
+        RecyclerView.Adapter<RecyclerViewAdapterChatRecord.RecyclerChatRecordViewHolder>
+{
+    // Store the list of ChatRecord objects, sender and receiver names
+    // and a hashmap of each sticker's string name and its related integer id.
+    private final ArrayList<ChatRecord> chat_card_list;
+    private final String sender_username;
+    private final String receiver_username;
+    private final HashMap<String, Integer> stickerStr_id_hashmap;
 
+    // Constructor.
     public RecyclerViewAdapterChatRecord(ArrayList<ChatRecord> chat_card_list,
-                                         String sender_username, String receiver_username) {
+                                         String sender_username, String receiver_username)
+    {
         this.chat_card_list = chat_card_list;
         this.sender_username = sender_username;
         this.receiver_username = receiver_username;
-        this.sticker_id_mapping = new HashMap<>();
-        map_sticker_ids();
+        this.stickerStr_id_hashmap = new HashMap<>();
+        // Map each sticker's string with related integer id.
+        mapAll_stickerStr_to_id();
     }
 
-    private void map_sticker_ids() {
-        sticker_id_mapping.put("sticker14", R.drawable.sticker_1);
-        sticker_id_mapping.put("sticker2", R.drawable.sticker_2);
-        sticker_id_mapping.put("sticker3", R.drawable.sticker_3);
-        sticker_id_mapping.put("sticker4", R.drawable.sticker_4);
-        sticker_id_mapping.put("sticker5", R.drawable.sticker_5);
-        sticker_id_mapping.put("sticker6", R.drawable.sticker_6);
-        sticker_id_mapping.put("sticker7", R.drawable.sticker_7);
-        sticker_id_mapping.put("sticker8", R.drawable.sticker_8);
-        sticker_id_mapping.put("sticker9", R.drawable.sticker_9);
-        sticker_id_mapping.put("sticker10", R.drawable.sticker_10);
-        sticker_id_mapping.put("sticker12", R.drawable.sticker_12);
-        sticker_id_mapping.put("sticker13", R.drawable.sticker_13);
+    // Map each Sticker's string with related integer id.
+    private void mapAll_stickerStr_to_id()
+    {
+        stickerStr_id_hashmap.put("sticker1", R.drawable.sticker_1);
+        stickerStr_id_hashmap.put("sticker2", R.drawable.sticker_2);
+        stickerStr_id_hashmap.put("sticker3", R.drawable.sticker_3);
+        stickerStr_id_hashmap.put("sticker4", R.drawable.sticker_4);
+        stickerStr_id_hashmap.put("sticker5", R.drawable.sticker_5);
+        stickerStr_id_hashmap.put("sticker6", R.drawable.sticker_6);
+        stickerStr_id_hashmap.put("sticker7", R.drawable.sticker_7);
+        stickerStr_id_hashmap.put("sticker8", R.drawable.sticker_8);
+        stickerStr_id_hashmap.put("sticker9", R.drawable.sticker_9);
+        stickerStr_id_hashmap.put("sticker10", R.drawable.sticker_10);
+        stickerStr_id_hashmap.put("sticker11", R.drawable.sticker_11);
+        stickerStr_id_hashmap.put("sticker12", R.drawable.sticker_12);
+        stickerStr_id_hashmap.put("sticker13", R.drawable.sticker_13);
     }
 
+    // Called to create a new RecyclerChatViewHolder.
     @NonNull
     @Override
-    public RecyclerChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerChatRecordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
+        // Create a new RecyclerChatViewHolder based on chat_record_holder xml file.
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.chat_viewholder, parent, false);
-        return new RecyclerChatViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.chat_record_holder, parent, false);
+        return new RecyclerChatRecordViewHolder(view);
     }
 
+    // Called by RecyclerView to display the ChatRecord object's data at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull RecyclerChatViewHolder holder, int position) {
-        ChatRecord chatCard = chat_card_list.get(position);
+    public void onBindViewHolder(@NonNull RecyclerChatRecordViewHolder viewHolder, int position)
+    {
+        // Get specified ChatRecord object.
+        ChatRecord chatRecord = chat_card_list.get(position);
 
         // Correct time here, wrong time inside the database.
-        String sticker_tag = chatCard.getSticker();
-        String time = chatCard.getTime();
-        Long value = Long.parseLong(time);
+        String sticker_tag = chatRecord.getSticker();
+        String time = chatRecord.getTime();
+        long value = Long.parseLong(time);
         Date date = new Date(value);
         DateFormat format = new SimpleDateFormat("yyyy/MM/dd|HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("GMT-4"));
         String formatted = format.format(date);
 
-        String sender = chatCard.getSender();
-        String receiver = chatCard.getReceiver();
+        // Get sender and receiver's name in string form
+        String senderStr = chatRecord.getSender();
+        String receiverStr = chatRecord.getReceiver();
 
-        if (sender.equals(sender_username) && receiver.equals(receiver_username)) {
-            holder.getSenderSticker().setImageResource(sticker_id_mapping.get(sticker_tag));
-            holder.getReceiverSticker().setImageResource(0);
-            holder.getSenderStickerTime().setText(formatted);
-            holder.getReceiverStickerTime().setText("");
-        } else if (sender.equals(receiver_username) && receiver.equals(sender_username)) {
-            holder.getReceiverSticker().setImageResource(sticker_id_mapping.get(sticker_tag));
-            holder.getSenderSticker().setImageResource(0);
-            holder.getReceiverStickerTime().setText(formatted);
-            holder.getSenderStickerTime().setText("");
+        // Check sender and receiver names match the same order case.
+        if (senderStr.equals(sender_username) && receiverStr.equals(receiver_username))
+        {
+            // Set sender sticker's ImageView.
+            viewHolder.getSenderSticker().setImageResource(stickerStr_id_hashmap.get(sticker_tag));
+            // Set sender sticker's sending time.
+            viewHolder.getSenderStickerTime().setText(formatted);
+            // Clear the receiver sticker's ImageView.
+            viewHolder.getReceiverSticker().setImageResource(android.R.color.transparent);
+            // Clear the receiver sticker's receiving time.
+            viewHolder.getReceiverStickerTime().setText("");
+        }
+        // Check sender and receiver names match the reverse order case.
+        else if (senderStr.equals(receiver_username) && receiverStr.equals(sender_username))
+        {
+            // Set receiver sticker's ImageView.
+            viewHolder.getReceiverSticker().setImageResource(stickerStr_id_hashmap.get(sticker_tag));
+            // Set receiver sticker's time.
+            viewHolder.getReceiverStickerTime().setText(formatted);
+            // Clear the sender sticker's ImageView.
+            viewHolder.getSenderSticker().setImageResource(android.R.color.transparent);
+            // Clear the sender sticker's sending time.
+            viewHolder.getSenderStickerTime().setText("");
         }
     }
 
+    // Returns the total number of ChatRecord objects in the data set held by the adapter.
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return chat_card_list.size();
     }
 
-    public static class RecyclerChatViewHolder extends RecyclerView.ViewHolder {
-        private ImageView senderSticker;
-        private ImageView receiverSticker;
-        private TextView senderStickerTime;
-        private TextView receiverStickerTime;
+    /**
+     * This class represents the ViewHolder of each ChatRecord.
+     */
+    public static class RecyclerChatRecordViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView senderStickerImageView;
+        private final ImageView receiverStickerImageView;
+        private final TextView senderStickerTimeTextView;
+        private final TextView receiverStickerTimeTextView;
 
-        public ImageView getSenderSticker() {
-            return senderSticker;
+        // All four getter functions.
+
+        public ImageView getSenderSticker()
+        {
+            return senderStickerImageView;
         }
 
-        public ImageView getReceiverSticker() {
-            return receiverSticker;
+        public ImageView getReceiverSticker()
+        {
+            return receiverStickerImageView;
         }
 
-        public TextView getSenderStickerTime() {
-            return senderStickerTime;
+        public TextView getSenderStickerTime()
+        {
+            return senderStickerTimeTextView;
         }
 
-        public TextView getReceiverStickerTime() {
-            return receiverStickerTime;
+        public TextView getReceiverStickerTime()
+        {
+            return receiverStickerTimeTextView;
         }
 
-        public RecyclerChatViewHolder(@NonNull View itemView) {
+        // Constructor.
+        public RecyclerChatRecordViewHolder(@NonNull View itemView)
+        {
             super(itemView);
-            senderSticker = itemView.findViewById(R.id.imageViewSender);
-            receiverSticker = itemView.findViewById(R.id.imageViewReceiver);
-            senderStickerTime = itemView.findViewById(R.id.textViewSenderTime);
-            receiverStickerTime = itemView.findViewById(R.id.textViewReceiverTime);
+            senderStickerImageView = itemView.findViewById(R.id.imageViewSender);
+            receiverStickerImageView = itemView.findViewById(R.id.imageViewReceiver);
+            senderStickerTimeTextView = itemView.findViewById(R.id.textViewSenderTime);
+            receiverStickerTimeTextView = itemView.findViewById(R.id.textViewReceiverTime);
         }
     }
 }

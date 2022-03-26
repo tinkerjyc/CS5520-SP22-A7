@@ -22,7 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 /**
- * This class represents the activity of the main page.
+ * This class represents the activity of the main page
+ * (also implements UserRecordListener interface).
  */
 public class MainPageActivity extends AppCompatActivity implements
         RecyclerViewAdapterUserRecordContainer.UserRecordListener
