@@ -1,12 +1,7 @@
 ﻿# CS5520-SP22-A7 Stick It To 'Em(Team Awesome)
+ 
+## Team Members
 
-## Table of Contents
-
-- [TeamMembers](#TeamMembers)
-- [TeamWork](#TeamWork)
-- [Exhibition](#Exhibition)
-
-**Team Members:**
 - Xiaomeng Jiang
 - Yicheng Jiang
 - Yunmeng Han
@@ -22,6 +17,16 @@ Yunxiang was responsible for total structure design and the firebase part.
 
 ## Exhibition
 
-<div align="center"> <img src=""/> </div>
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/gifOne.gif"/> </div>
 
-<div align="center"> <img src=""/> </div>
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/001.jpg"/> </div>
+
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/002.jpg"/> </div>
+
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/003.jpg"/> </div>
+
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/004.jpg"/> </div>
+
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/005.jpg"/> </div>
+
+<div align="center"> <img src="https://github.com/tinkerjyc/CS5520-SP22-A7/blob/main/Exhibition/006.jpg"/> </div>
