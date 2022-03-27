@@ -1,6 +1,27 @@
-﻿# CS5520-SP22-A7
-Team Members:
-- Xiaomeng Jiang: User page<br> 
-- Yicheng Jiang: Notification<br>
-- Yunmeng Han: Chat record<br>
-- Yunxiang Li: Firebase & Lead design<br>
+﻿# CS5520-SP22-A7 Stick It To 'Em(Team Awesome)
+
+## Table of Contents
+
+- [Team Members](#Team Members)
+- [Team Work](#Team Work)
+- [Exhibition](#Exhibition)
+
+**Team Members:**
+- Xiaomeng Jiang
+- Yicheng Jiang
+- Yunmeng Han
+- Yunxiang Li
+
+## Team Work
+
+Xiaomeng Jiang implemented the whole user info's recycler view.
+Yicheng Jiang completed the notification on both sender and receiver sides.
+Yunmeng Han applied the whole chat record's recycler view.
+Yunxiang was responsible for total structure design and the firebase part.
+
+
+## Exhibition
+
+<div align="center"> <img src=""/> </div>
+
+<div align="center"> <img src=""/> </div>
