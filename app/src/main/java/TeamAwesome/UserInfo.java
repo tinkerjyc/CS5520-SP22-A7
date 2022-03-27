@@ -1,4 +1,4 @@
-package edu.neu.madcourse.TeamAwesome;
+package TeamAwesome;
 
 /**
  * This class represents each user's information.

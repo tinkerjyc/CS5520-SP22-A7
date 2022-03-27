@@ -1,4 +1,4 @@
-package edu.neu.madcourse.TeamAwesome;
+package TeamAwesome;
 
 import android.view.LayoutInflater;
 import android.view.View;

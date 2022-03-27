@@ -1,4 +1,4 @@
-package edu.neu.madcourse.TeamAwesome;
+package TeamAwesome;
 
 import android.content.Intent;
 import android.os.Bundle;
