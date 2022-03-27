@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity
         {
             // Start a new MainPageActivity with extra username content.
             Intent loginToMainPageIntent = new Intent(LoginActivity.this,
-                    edu.neu.madcourse.numad22sp_yunxiangli.MainPageActivity.class);
+                    MainPageActivity.class);
             loginToMainPageIntent.putExtra("username", username);
             startActivity(loginToMainPageIntent);
         }

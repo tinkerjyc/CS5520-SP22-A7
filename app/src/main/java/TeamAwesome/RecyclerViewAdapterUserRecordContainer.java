@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import edu.neu.madcourse.TeamAwesome.R;
+
 /**
  * This class represents the RecyclerViewAdapter of UserRecordContainer.
  */

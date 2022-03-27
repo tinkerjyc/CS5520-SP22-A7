@@ -16,6 +16,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TimeZone;
 
+import edu.neu.madcourse.TeamAwesome.R;
+
 /**
  * This class represents the recyclerview adapter of ChatRecord.
  */

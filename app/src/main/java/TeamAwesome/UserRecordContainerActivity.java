@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.neu.madcourse.TeamAwesome.R;
+
 /**
  * This class represents the activity of the user record container(each row).
  */

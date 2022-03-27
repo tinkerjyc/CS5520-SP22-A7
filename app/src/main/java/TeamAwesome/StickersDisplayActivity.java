@@ -11,8 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import edu.neu.madcourse.TeamAwesome.R;
 
 /**
  * This class represents the activity of displaying all available stickers after user

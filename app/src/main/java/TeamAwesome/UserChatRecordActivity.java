@@ -21,6 +21,8 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import edu.neu.madcourse.TeamAwesome.R;
+
 /**
  * This class represents the activity of chat record between two specific users.
  */
