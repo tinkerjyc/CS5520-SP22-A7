@@ -24,6 +24,9 @@
         <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/chat_recordholder.xml" value="0.1" />
         <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/chat_viewholder.xml" value="0.21197916666666666" />
         <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/user_record_container.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_chat_record_recycleview.xml" value="0.33645833333333336" />
+        <entry key="app/src/main/res/layout/activity_stickers_display.xml" value="0.33645833333333336" />
+        <entry key="app/src/main/res/layout/chat_record_holder.xml" value="0.33645833333333336" />
       </map>
     </option>
   </component>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StickersDisplayActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/sticker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="40dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_1"
+                android:tag="sticker1"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/sticker2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker1"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_2"
+                android:tag="sticker2"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/sticker3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker2"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="44dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_3"
+                android:tag="sticker3"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/sticker4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker3"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_4"
+                android:tag="sticker4"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker4"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_5"
+                android:tag="sticker5"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/sticker6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker5"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="77dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_6"
+                android:tag="sticker6"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker6"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_7"
+                android:tag="sticker7"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker7"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_8"
+                android:tag="sticker8"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker8"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_9"
+                android:tag="sticker9"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker9"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="92dp"
+                android:layout_marginEnd="37dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_10"
+                android:tag="sticker10"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker10"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_11"
+                android:tag="sticker11"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker11"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_12"
+                android:tag="sticker12"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/sticker13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sticker12"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="onClickStickerButton"
+                android:padding="10dp"
+                android:src="@drawable/sticker_13"
+                android:tag="sticker13"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/sendStickerInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
