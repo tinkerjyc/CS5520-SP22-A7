@@ -10,8 +10,11 @@
 ## Team Work
 
 Xiaomeng Jiang implemented the whole user info's recycler view.
+
 Yicheng Jiang completed the notification on both sender and receiver sides.
+
 Yunmeng Han applied the whole chat record's recycler view.
+
 Yunxiang was responsible for total structure design and the firebase part.
 
 
