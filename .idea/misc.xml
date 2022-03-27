@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/CS 5520/CS5520-SP22-A7/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2885" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_chat_history.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_chat_record_recycleview.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_display_stickers.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_home_screen.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_main_page.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/activity_stickers_display.xml" value="0.1" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/chat_viewholder.xml" value="0.3359173126614987" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/user_record.xml" value="0.33" />
+        <entry key="..\:/Users/kitzu/AndroidStudioProjects/NUMAD22Sp_YunxiangLi2/app/src/main/res/layout/user_record_container.xml" value="0.18" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/activity_chat_record_recycleview.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/activity_login.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/activity_main_page.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/activity_stickers_display.xml" value="0.39022051773729627" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/chat_record_holder.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/chat_recordholder.xml" value="0.1" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/chat_viewholder.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/kitzu/Desktop/CS5520-SP22-A7/app/src/main/res/layout/user_record_container.xml" value="0.21197916666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
