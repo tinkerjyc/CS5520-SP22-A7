@@ -1,4 +1,4 @@
-package edu.neu.madcourse.numad22sp_yunxiangli;
+package TeamAwesome;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import edu.neu.madcourse.TeamAwesome.R;
 
 /**
  * This class represents the login activity(username page).
@@ -70,7 +72,7 @@ public class LoginActivity extends AppCompatActivity
         {
             // Start a new MainPageActivity with extra username content.
             Intent loginToMainPageIntent = new Intent(LoginActivity.this,
-                    MainPageActivity.class);
+                    edu.neu.madcourse.numad22sp_yunxiangli.MainPageActivity.class);
             loginToMainPageIntent.putExtra("username", username);
             startActivity(loginToMainPageIntent);
         }

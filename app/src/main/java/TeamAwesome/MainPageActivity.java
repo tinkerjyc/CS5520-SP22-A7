@@ -1,4 +1,4 @@
-package edu.neu.madcourse.numad22sp_yunxiangli;
+package TeamAwesome;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import edu.neu.madcourse.TeamAwesome.R;
 
 /**
  * This class represents the activity of the main page
