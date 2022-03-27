@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [Team Members](#Team Members)
-- [Team Work](#Team Work)
+- [TeamMembers](#Team Members)
+- [TeamWork](#Team Work)
 - [Exhibition](#Exhibition)
 
 **Team Members:**
