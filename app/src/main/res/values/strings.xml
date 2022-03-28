@@ -5,4 +5,5 @@
     <string name="username_prompt">Enter Username</string>
     <string name="Login">Login</string>
     <string name="ellipsisStr">.....</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 </resources>
